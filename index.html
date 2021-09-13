@@ -150,6 +150,95 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-动手学数据分析-9月-Task-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-9%E6%9C%88-Task-01/">动手学数据分析 9月 Task-01</a>
+    </h1>
+  
+
+        
+        <a href="/2021/09/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-9%E6%9C%88-Task-01/" class="archive-article-date">
+  	<time datetime="2021-09-13T11:55:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第一章：-数据载入及初步观察"><a href="#第一章：-数据载入及初步观察" class="headerlink" title="第一章： 数据载入及初步观察"></a>第一章： 数据载入及初步观察</h2><h3 id="第一节"><a href="#第一节" class="headerlink" title="第一节"></a><strong>第一节</strong></h3><h4 id="1-1-载入数据"><a href="#1-1-载入数据" class="headerlink" title="1.1 载入数据"></a><strong>1.1 载入数据</strong></h4><p>首先将数据集载入<br>数据集来源 <a target="_blank" rel="noopener" href="https://www.kaggle.com/c/titanic/overview">https://www.kaggle.com/c/titanic/overview</a></p>
+<p>此时要用到python中的pandas来帮助读取数据。而常用的的两种引入数据的方式为：<br><code>read_csv</code> 和 <code>read_table</code><br>这两种方式有什么区别。执行以下代码来看一下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_data</span>():</span></span><br><span class="line">    <span class="keyword">return</span> pd.read_csv(<span class="string">&quot;train.csv&quot;</span>), pd.read_table(<span class="string">&quot;train.csv&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    csv, table = load_data()</span><br><span class="line">    <span class="built_in">print</span>(csv.head())</span><br><span class="line">    <span class="built_in">print</span>(table.head())</span><br><span class="line">    <span class="built_in">print</span>(table.head().shape)</span><br></pre></td></tr></table></figure>
+<p>分别用两种方式读取数据集，然后打印前五行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">   PassengerId  Survived  Pclass  ...     Fare Cabin  Embarked</span><br><span class="line">0            1         0       3  ...   7.2500   NaN         S</span><br><span class="line">1            2         1       1  ...  71.2833   C85         C</span><br><span class="line">2            3         1       3  ...   7.9250   NaN         S</span><br><span class="line">3            4         1       1  ...  53.1000  C123         S</span><br><span class="line">4            5         0       3  ...   8.0500   NaN         S</span><br><span class="line"></span><br><span class="line">[5 rows x 12 columns]</span><br><span class="line">  PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked</span><br><span class="line">0  1,0,3,&quot;Braund, Mr. Owen Harris&quot;,male,22,1,0,A/...                             </span><br><span class="line">1  2,1,1,&quot;Cumings, Mrs. John Bradley (Florence Br...                             </span><br><span class="line">2  3,1,3,&quot;Heikkinen, Miss. Laina&quot;,female,26,0,0,S...                             </span><br><span class="line">3  4,1,1,&quot;Futrelle, Mrs. Jacques Heath (Lily May ...                             </span><br><span class="line">4  5,0,3,&quot;Allen, Mr. William Henry&quot;,male,35,0,0,3...                             </span><br><span class="line">(5, 1)</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+<p>可以看到用 <code>read_csv</code> 读取的前五行是 5x12 的数组，说明是以每一个字符串作为存储单位来读取的。而 <code>read_table</code> 读取的前五行是一个 5x1 的数组，每一个元素之前以逗号分隔，说明是以每一行作为存储单位来读取的。如果想让两者的读取效果一样，可以在读取的时候选择用逗号分隔 <code>pd.read_table(&quot;train.csv&quot;, delimiter=&quot;,&quot;)</code> </p>
+<p>另外，如果载入数据的数据集非常大，可以利用chunk划分成数据块<br><code>data = pd.read_csv(&quot;train.csv&quot;, chunksize=100)</code><br>其中chunksize的值代表每个数据块的行数，chunk的数据类型是dataframe。所以读取的时候遍历即可。下面是一个例子：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for chunk in data:</span><br><span class="line">  print(chunk)</span><br></pre></td></tr></table></figure>
+<p>输出结果为（一个chunk）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">PassengerId  Survived  Pclass  ...     Fare    Cabin  Embarked</span><br><span class="line">0             1         0       3  ...   7.2500      NaN         S</span><br><span class="line">1             2         1       1  ...  71.2833      C85         C</span><br><span class="line">2             3         1       3  ...   7.9250      NaN         S</span><br><span class="line">3             4         1       1  ...  53.1000     C123         S</span><br><span class="line">4             5         0       3  ...   8.0500      NaN         S</span><br><span class="line">..          ...       ...     ...  ...      ...      ...       ...</span><br><span class="line">95           96         0       3  ...   8.0500      NaN         S</span><br><span class="line">96           97         0       1  ...  34.6542       A5         C</span><br><span class="line">97           98         1       1  ...  63.3583  D10 D12         C</span><br><span class="line">98           99         1       2  ...  23.0000      NaN         S</span><br><span class="line">99          100         0       2  ...  26.0000      NaN         S</span><br><span class="line"></span><br><span class="line">[100 rows x 12 columns]</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="1-2-观察数据"><a href="#1-2-观察数据" class="headerlink" title="1.2 观察数据"></a><strong>1.2 观察数据</strong></h4><p>通过观察训练集可以知道，表头一共有12种。将表头转换成中文更有助于我们看清数据背后的联系。</p>
+<blockquote>
+<p>PassengerId =&gt; 乘客ID<br>Survived    =&gt; 是否幸存<br>Pclass      =&gt; 乘客等级(1/2/3等舱位)<br>Name        =&gt; 乘客姓名<br>Sex         =&gt; 性别<br>Age         =&gt; 年龄<br>SibSp       =&gt; 堂兄弟/妹个数<br>Parch       =&gt; 父母与小孩个数<br>Ticket      =&gt; 船票信息<br>Fare        =&gt; 票价<br>Cabin       =&gt; 客舱<br>Embarked    =&gt; 登船港口  </p>
+</blockquote>
+<p>如果要把表头换成中文并且将索引改为<code>乘客ID</code>。我们可以进行如下操作：<br>首先先创建一个中文名称的array，然后利用<code>header</code>参数将表头去掉，之后把刚才创建好的中文表头“安装”上去。最后再用<code>index_col</code>参数指定<code>乘客ID</code>为索引。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">headers = [<span class="string">&quot;乘客ID&quot;</span>,<span class="string">&quot;是否幸存&quot;</span>,<span class="string">&quot;舱位等级&quot;</span>,<span class="string">&quot;姓名&quot;</span>,<span class="string">&quot;性别&quot;</span>,<span class="string">&quot;年龄&quot;</span>,<span class="string">&quot;兄弟姐妹数量&quot;</span>,<span class="string">&quot;父母小孩数量&quot;</span>,<span class="string">&quot;船票信息&quot;</span>,<span class="string">&quot;票价&quot;</span>,<span class="string">&quot;客舱&quot;</span>,<span class="string">&quot;登船港口&quot;</span>]</span><br><span class="line">data2 = pd.read_csv(<span class="string">&quot;train.csv&quot;</span>, names=headers,header=<span class="number">0</span>,index_col=<span class="string">&quot;乘客ID&quot;</span>)</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据分析</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/09/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-9%E6%9C%88-Task-01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -183,81 +272,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/09/12/test/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/12/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2021/09/12/hello-world/" class="archive-article-date">
-  	<time datetime="2021-09-12T10:44:02.441Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/09/12/hello-world/">展开全文 >></a>
         </p>
       
 
@@ -378,6 +392,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据分析</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
