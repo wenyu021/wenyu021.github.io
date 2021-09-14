@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>动手学数据分析 9月 Task-01 | 四喜的学习Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第一章： 数据载入及初步观察第一节1.1 载入数据首先将数据集载入数据集来源 https:&#x2F;&#x2F;www.kaggle.com&#x2F;c&#x2F;titanic&#x2F;overview 此时要用到python中的pandas来帮助读取数据。而常用的的两种引入数据的方式为：read_csv 和 read_table这两种方式有什么区别。执行以下代码来看一下 12345678910import pandas as pddef">
+  <meta name="description" content="第一章： 数据载入及初步观察第一节 1.1 载入数据首先将数据集载入数据集来源 https:&#x2F;&#x2F;www.kaggle.com&#x2F;c&#x2F;titanic&#x2F;overview 此时要用到python中的pandas来帮助读取数据。而常用的的两种引入数据的方式为：read_csv 和 read_table这两种方式有什么区别。执行以下代码来看一下 12345678910import pandas as pdde">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动手学数据分析 9月 Task-01">
 <meta property="og:url" content="http://example.com/2021/09/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-9%E6%9C%88-Task-01/index.html">
 <meta property="og:site_name" content="四喜的学习Blog">
-<meta property="og:description" content="第一章： 数据载入及初步观察第一节1.1 载入数据首先将数据集载入数据集来源 https:&#x2F;&#x2F;www.kaggle.com&#x2F;c&#x2F;titanic&#x2F;overview 此时要用到python中的pandas来帮助读取数据。而常用的的两种引入数据的方式为：read_csv 和 read_table这两种方式有什么区别。执行以下代码来看一下 12345678910import pandas as pddef">
+<meta property="og:description" content="第一章： 数据载入及初步观察第一节 1.1 载入数据首先将数据集载入数据集来源 https:&#x2F;&#x2F;www.kaggle.com&#x2F;c&#x2F;titanic&#x2F;overview 此时要用到python中的pandas来帮助读取数据。而常用的的两种引入数据的方式为：read_csv 和 read_table这两种方式有什么区别。执行以下代码来看一下 12345678910import pandas as pdde">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-09-13T11:55:24.000Z">
-<meta property="article:modified_time" content="2021-09-13T18:34:29.835Z">
+<meta property="article:modified_time" content="2021-09-14T08:05:12.213Z">
 <meta property="article:author" content="王四喜">
 <meta property="article:tag" content="数据分析">
 <meta property="article:tag" content="python">
@@ -170,10 +170,10 @@
         
       </header>
     
-
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="第一章：-数据载入及初步观察"><a href="#第一章：-数据载入及初步观察" class="headerlink" title="第一章： 数据载入及初步观察"></a>第一章： 数据载入及初步观察</h2><h3 id="第一节"><a href="#第一节" class="headerlink" title="第一节"></a><strong>第一节</strong></h3><h4 id="1-1-载入数据"><a href="#1-1-载入数据" class="headerlink" title="1.1 载入数据"></a><strong>1.1 载入数据</strong></h4><p>首先将数据集载入<br>数据集来源 <a target="_blank" rel="noopener" href="https://www.kaggle.com/c/titanic/overview">https://www.kaggle.com/c/titanic/overview</a></p>
+        <h2 id="第一章：-数据载入及初步观察"><a href="#第一章：-数据载入及初步观察" class="headerlink" title="第一章： 数据载入及初步观察"></a>第一章： 数据载入及初步观察</h2><h3 id="第一节"><a href="#第一节" class="headerlink" title="第一节"></a><strong>第一节</strong></h3><hr>
+<h4 id="1-1-载入数据"><a href="#1-1-载入数据" class="headerlink" title="1.1 载入数据"></a><strong>1.1 载入数据</strong></h4><p>首先将数据集载入<br>数据集来源 <a target="_blank" rel="noopener" href="https://www.kaggle.com/c/titanic/overview">https://www.kaggle.com/c/titanic/overview</a></p>
 <p>此时要用到python中的pandas来帮助读取数据。而常用的的两种引入数据的方式为：<br><code>read_csv</code> 和 <code>read_table</code><br>这两种方式有什么区别。执行以下代码来看一下</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_data</span>():</span></span><br><span class="line">    <span class="keyword">return</span> pd.read_csv(<span class="string">&quot;train.csv&quot;</span>), pd.read_table(<span class="string">&quot;train.csv&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    csv, table = load_data()</span><br><span class="line">    <span class="built_in">print</span>(csv.head())</span><br><span class="line">    <span class="built_in">print</span>(table.head())</span><br><span class="line">    <span class="built_in">print</span>(table.head().shape)</span><br></pre></td></tr></table></figure>
 <p>分别用两种方式读取数据集，然后打印前五行<span id="more"></span></p>
@@ -183,13 +183,34 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for chunk in data:</span><br><span class="line">  print(chunk)</span><br></pre></td></tr></table></figure>
 <p>输出结果为（一个chunk）：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">PassengerId  Survived  Pclass  ...     Fare    Cabin  Embarked</span><br><span class="line">0             1         0       3  ...   7.2500      NaN         S</span><br><span class="line">1             2         1       1  ...  71.2833      C85         C</span><br><span class="line">2             3         1       3  ...   7.9250      NaN         S</span><br><span class="line">3             4         1       1  ...  53.1000     C123         S</span><br><span class="line">4             5         0       3  ...   8.0500      NaN         S</span><br><span class="line">..          ...       ...     ...  ...      ...      ...       ...</span><br><span class="line">95           96         0       3  ...   8.0500      NaN         S</span><br><span class="line">96           97         0       1  ...  34.6542       A5         C</span><br><span class="line">97           98         1       1  ...  63.3583  D10 D12         C</span><br><span class="line">98           99         1       2  ...  23.0000      NaN         S</span><br><span class="line">99          100         0       2  ...  26.0000      NaN         S</span><br><span class="line"></span><br><span class="line">[100 rows x 12 columns]</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="1-2-观察数据"><a href="#1-2-观察数据" class="headerlink" title="1.2 观察数据"></a><strong>1.2 观察数据</strong></h4><p>通过观察训练集可以知道，表头一共有12种。将表头转换成中文更有助于我们看清数据背后的联系。</p>
+
+<p>接着通过观察训练集可以知道，表头一共有12种。将表头转换成中文更有助于我们看清数据背后的联系。</p>
 <blockquote>
 <p>PassengerId =&gt; 乘客ID<br>Survived    =&gt; 是否幸存<br>Pclass      =&gt; 乘客等级(1/2/3等舱位)<br>Name        =&gt; 乘客姓名<br>Sex         =&gt; 性别<br>Age         =&gt; 年龄<br>SibSp       =&gt; 堂兄弟/妹个数<br>Parch       =&gt; 父母与小孩个数<br>Ticket      =&gt; 船票信息<br>Fare        =&gt; 票价<br>Cabin       =&gt; 客舱<br>Embarked    =&gt; 登船港口  </p>
 </blockquote>
 <p>如果要把表头换成中文并且将索引改为<code>乘客ID</code>。我们可以进行如下操作：<br>首先先创建一个中文名称的array，然后利用<code>header</code>参数将表头去掉，之后把刚才创建好的中文表头“安装”上去。最后再用<code>index_col</code>参数指定<code>乘客ID</code>为索引。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">headers = [<span class="string">&quot;乘客ID&quot;</span>,<span class="string">&quot;是否幸存&quot;</span>,<span class="string">&quot;舱位等级&quot;</span>,<span class="string">&quot;姓名&quot;</span>,<span class="string">&quot;性别&quot;</span>,<span class="string">&quot;年龄&quot;</span>,<span class="string">&quot;兄弟姐妹数量&quot;</span>,<span class="string">&quot;父母小孩数量&quot;</span>,<span class="string">&quot;船票信息&quot;</span>,<span class="string">&quot;票价&quot;</span>,<span class="string">&quot;客舱&quot;</span>,<span class="string">&quot;登船港口&quot;</span>]</span><br><span class="line">data2 = pd.read_csv(<span class="string">&quot;train.csv&quot;</span>, names=headers,header=<span class="number">0</span>,index_col=<span class="string">&quot;乘客ID&quot;</span>)</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="1-2-观察数据"><a href="#1-2-观察数据" class="headerlink" title="1.2 观察数据"></a><strong>1.2 观察数据</strong></h4><p>查看数据基本信息的方法有</p>
+<blockquote>
+<p> <code>.info()</code>  查看数据的基本信息<br> <code>.head()</code>  查看头部的数据，可以指定行数<br> <code>.tail()</code>  查看尾部的数据，可以指定行数<br> <code>.shape()</code>  查看数据的形状<br> <code>.describe()</code>  查看数据的一些数学/统计意义数据。例如 总数 平均数 方差  </p>
+</blockquote>
+<p>下面是是使用<code>.info()</code>得到的数据集的信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;class &#x27;pandas.core.frame.DataFrame&#x27;&gt;</span><br><span class="line">Int64Index: 891 entries, 1 to 891</span><br><span class="line">Data columns (total 11 columns):</span><br><span class="line"> #   Column  Non-Null Count  Dtype  </span><br><span class="line">---  ------  --------------  -----  </span><br><span class="line"> 0   是否幸存    891 non-null    int64  </span><br><span class="line"> 1   舱位等级    891 non-null    int64  </span><br><span class="line"> 2   姓名      891 non-null    object </span><br><span class="line"> 3   性别      891 non-null    object </span><br><span class="line"> 4   年龄      714 non-null    float64</span><br><span class="line"> 5   兄弟姐妹数量  891 non-null    int64  </span><br><span class="line"> 6   父母小孩数量  891 non-null    int64  </span><br><span class="line"> 7   船票信息    891 non-null    object </span><br><span class="line"> 8   票价      891 non-null    float64</span><br><span class="line"> 9   客舱      204 non-null    object </span><br><span class="line"> 10  登船港口    889 non-null    object </span><br><span class="line">dtypes: float64(2), int64(4), object(5)</span><br><span class="line">memory usage: 83.5+ KB</span><br><span class="line">None</span><br></pre></td></tr></table></figure>
+<p>观察发现一共有891个乘客信息。但是年龄这一列有714个非空数据，客舱有204个登船港口有889个，说明数据中存在很多空缺。统计缺失值的方法可以有：</p>
+<blockquote>
+<p><code>isnull()</code>此函数返回的是dataframe中缺失值的情况，缺失为<code>true</code> 其余为<code>false</code><br><code>isnull().sum()</code> 来统计每一列中有多少空缺。<br><code>isnull().any()</code> 如果某一列含有空缺则会在后面显示<code>true</code></p>
+</blockquote>
+<p>最后将中文表头的数据储存到新的文件里<br><code>data2.to_csv(&quot;train-chinese.csv&quot;,encoding=&#39;GBK&#39;)</code><br>注意因为我们将表头更改成中文，为了避免出现乱码所以需要指明编码格式</p>
+<hr>
+<p><strong>声明</strong> ：以上学习内容根据DataWhale的<a target="_blank" rel="noopener" href="https://github.com/datawhalechina/hands-on-data-analysis">动手学数据分析课程</a>  </p>
+<hr>
+<ul>
+<li>本文作者 ：王四喜  </li>
+<li>版权声明 ：本作品采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>，转载请注明出处!  </li>
+<li>本博客属个人所有，旨在整理和记录学习资料、心得体会，并方便日后查阅，不涉及任何商业目的。如文章不慎造成某方面侵权，实属抱歉，请联系我进行修改或删除。</li>
+</ul>
+
       
 
       
