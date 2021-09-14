@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>动手学数据分析 9月 Task-01 | 4Xi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第一章： 数据载入及初步观察第一节 1.1 载入数据首先将数据集载入数据集来源 https:&#x2F;&#x2F;www.kaggle.com&#x2F;c&#x2F;titanic&#x2F;overview 此时要用到python中的pandas来帮助读取数据。而常用的的两种引入数据的方式为：read_csv 和 read_table这两种方式有什么区别。执行以下代码来看一下 12345678910import pandas as pdde">
+  <meta name="description" content="第一章： 数据载入及初步观察第一节 载入数据首先将数据集载入数据集来源 https:&#x2F;&#x2F;www.kaggle.com&#x2F;c&#x2F;titanic&#x2F;overview 此时要用到python中的pandas来帮助读取数据。而常用的的两种引入数据的方式为：read_csv 和 read_table这两种方式有什么区别。执行以下代码来看一下 12345678910import pandas as pddef lo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动手学数据分析 9月 Task-01">
 <meta property="og:url" content="http://example.com/2021/09/13/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-9%E6%9C%88-Task-01/index.html">
 <meta property="og:site_name" content="4Xi">
-<meta property="og:description" content="第一章： 数据载入及初步观察第一节 1.1 载入数据首先将数据集载入数据集来源 https:&#x2F;&#x2F;www.kaggle.com&#x2F;c&#x2F;titanic&#x2F;overview 此时要用到python中的pandas来帮助读取数据。而常用的的两种引入数据的方式为：read_csv 和 read_table这两种方式有什么区别。执行以下代码来看一下 12345678910import pandas as pdde">
+<meta property="og:description" content="第一章： 数据载入及初步观察第一节 载入数据首先将数据集载入数据集来源 https:&#x2F;&#x2F;www.kaggle.com&#x2F;c&#x2F;titanic&#x2F;overview 此时要用到python中的pandas来帮助读取数据。而常用的的两种引入数据的方式为：read_csv 和 read_table这两种方式有什么区别。执行以下代码来看一下 12345678910import pandas as pddef lo">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-09-13T11:55:24.000Z">
-<meta property="article:modified_time" content="2021-09-14T08:05:12.213Z">
+<meta property="article:modified_time" content="2021-09-14T13:51:25.862Z">
 <meta property="article:author" content="王四喜">
 <meta property="article:tag" content="数据分析">
 <meta property="article:tag" content="python">
@@ -170,10 +170,11 @@
         
       </header>
     
+
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="第一章：-数据载入及初步观察"><a href="#第一章：-数据载入及初步观察" class="headerlink" title="第一章： 数据载入及初步观察"></a>第一章： 数据载入及初步观察</h2><h3 id="第一节"><a href="#第一节" class="headerlink" title="第一节"></a><strong>第一节</strong></h3><hr>
-<h4 id="1-1-载入数据"><a href="#1-1-载入数据" class="headerlink" title="1.1 载入数据"></a><strong>1.1 载入数据</strong></h4><p>首先将数据集载入<br>数据集来源 <a target="_blank" rel="noopener" href="https://www.kaggle.com/c/titanic/overview">https://www.kaggle.com/c/titanic/overview</a></p>
+<h4 id="载入数据"><a href="#载入数据" class="headerlink" title="载入数据"></a><strong>载入数据</strong></h4><p>首先将数据集载入<br>数据集来源 <a target="_blank" rel="noopener" href="https://www.kaggle.com/c/titanic/overview">https://www.kaggle.com/c/titanic/overview</a></p>
 <p>此时要用到python中的pandas来帮助读取数据。而常用的的两种引入数据的方式为：<br><code>read_csv</code> 和 <code>read_table</code><br>这两种方式有什么区别。执行以下代码来看一下</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_data</span>():</span></span><br><span class="line">    <span class="keyword">return</span> pd.read_csv(<span class="string">&quot;train.csv&quot;</span>), pd.read_table(<span class="string">&quot;train.csv&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    csv, table = load_data()</span><br><span class="line">    <span class="built_in">print</span>(csv.head())</span><br><span class="line">    <span class="built_in">print</span>(table.head())</span><br><span class="line">    <span class="built_in">print</span>(table.head().shape)</span><br></pre></td></tr></table></figure>
 <p>分别用两种方式读取数据集，然后打印前五行<span id="more"></span></p>
@@ -191,7 +192,7 @@
 <p>如果要把表头换成中文并且将索引改为<code>乘客ID</code>。我们可以进行如下操作：<br>首先先创建一个中文名称的array，然后利用<code>header</code>参数将表头去掉，之后把刚才创建好的中文表头“安装”上去。最后再用<code>index_col</code>参数指定<code>乘客ID</code>为索引。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">headers = [<span class="string">&quot;乘客ID&quot;</span>,<span class="string">&quot;是否幸存&quot;</span>,<span class="string">&quot;舱位等级&quot;</span>,<span class="string">&quot;姓名&quot;</span>,<span class="string">&quot;性别&quot;</span>,<span class="string">&quot;年龄&quot;</span>,<span class="string">&quot;兄弟姐妹数量&quot;</span>,<span class="string">&quot;父母小孩数量&quot;</span>,<span class="string">&quot;船票信息&quot;</span>,<span class="string">&quot;票价&quot;</span>,<span class="string">&quot;客舱&quot;</span>,<span class="string">&quot;登船港口&quot;</span>]</span><br><span class="line">data2 = pd.read_csv(<span class="string">&quot;train.csv&quot;</span>, names=headers,header=<span class="number">0</span>,index_col=<span class="string">&quot;乘客ID&quot;</span>)</span><br></pre></td></tr></table></figure>
 <hr>
-<h4 id="1-2-观察数据"><a href="#1-2-观察数据" class="headerlink" title="1.2 观察数据"></a><strong>1.2 观察数据</strong></h4><p>查看数据基本信息的方法有</p>
+<h4 id="观察数据"><a href="#观察数据" class="headerlink" title="观察数据"></a><strong>观察数据</strong></h4><p>查看数据基本信息的方法有</p>
 <blockquote>
 <p> <code>.info()</code>  查看数据的基本信息<br> <code>.head()</code>  查看头部的数据，可以指定行数<br> <code>.tail()</code>  查看尾部的数据，可以指定行数<br> <code>.shape()</code>  查看数据的形状<br> <code>.describe()</code>  查看数据的一些数学/统计意义数据。例如 总数 平均数 方差  </p>
 </blockquote>
@@ -203,6 +204,43 @@
 </blockquote>
 <p>最后将中文表头的数据储存到新的文件里<br><code>data2.to_csv(&quot;train-chinese.csv&quot;,encoding=&#39;GBK&#39;)</code><br>注意因为我们将表头更改成中文，为了避免出现乱码所以需要指明编码格式</p>
 <hr>
+<h3 id="第二节"><a href="#第二节" class="headerlink" title="第二节"></a><strong>第二节</strong></h3><h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a><strong>数据类型</strong></h4><p>之前提到过，通过<strong>pandas</strong>加载的数据的类型是<code>dataframe</code>。这是一种表格类型的数据结构，每一行每一列都有索引值。另一种常见的数据结构是<code>series</code>，它是一种类似数组的由索引值+数值组成的结构。一个小例子</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">s1 = pd.Series([<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>])</span><br><span class="line">s2 = pd.Series([<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(s1)</span><br><span class="line"><span class="built_in">print</span>(s2)</span><br><span class="line">df1 = pd.DataFrame([s1],[s2])</span><br><span class="line"><span class="built_in">print</span>(df1)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">0    a</span><br><span class="line">1    b</span><br><span class="line">2    c</span><br><span class="line">3    d</span><br><span class="line">dtype: object</span><br><span class="line">0    A</span><br><span class="line">1    B</span><br><span class="line">2    C</span><br><span class="line">3    D</span><br><span class="line">dtype: object</span><br><span class="line">   0  1  2  3</span><br><span class="line">A  a  b  c  d</span><br><span class="line">B  a  b  c  d</span><br><span class="line">C  a  b  c  d</span><br><span class="line">D  a  b  c  d</span><br></pre></td></tr></table></figure>
+
+<h4 id="查改数据"><a href="#查改数据" class="headerlink" title="查改数据"></a><strong>查改数据</strong></h4><ul>
+<li><p>查看列的名称  </p>
+<blockquote>
+<p><code>df.coloums</code>  </p>
+</blockquote>
+</li>
+<li><p>查看某列所有的值（<code>Cabin</code>）  </p>
+<blockquote>
+<p><code>df.Cabin</code> 或者 <code>df[&#39;Cabin&#39;]</code></p>
+</blockquote>
+</li>
+<li><p>删除某列 （<code>Age</code>）</p>
+<blockquote>
+<p><code>del df.Age</code> 或者 <code>del df[&#39;Age&#39;]</code></p>
+</blockquote>
+</li>
+<li><p>隐藏某列（<code>Name</code> , <code>Ticket</code>）</p>
+<blockquote>
+<p><code>df.drop(coloums = [&#39;Name&#39;,&#39;Ticket&#39;])</code></p>
+</blockquote>
+</li>
+</ul>
+<p>另外两个范围取值筛选的函数方法是<code>loc</code>和<code>iloc</code><br><strong><code>loc</code></strong><br>通过行的索引的值来筛选数据<br><strong><code>loc</code></strong><br>通过行号来选取数据  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">        Columns1  Columns2  Columns3  Columns4</span><br><span class="line">Index1  0.712295 -0.795627  0.335370 -0.471181</span><br><span class="line">Index2  0.175748  0.995514 -0.605352  0.965604</span><br><span class="line">Index3  1.748486  0.615215  0.494616 -1.241432</span><br><span class="line">Index4  1.489864 -0.279662  1.057456  1.632853</span><br></pre></td></tr></table></figure>
+<p>用这个简单的数据当例子</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data.loc[&#x27;Index3&#x27;,&#x27;Columns1&#x27;] </span><br><span class="line">data.iloc[2,0]</span><br></pre></td></tr></table></figure>
+<p>的结果都是 <strong>1.748486</strong>  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data.loc[<span class="string">&#x27;Index2&#x27;</span>:<span class="string">&#x27;Index4&#x27;</span>, <span class="string">&#x27;Columns1&#x27;</span>:<span class="string">&#x27;Columns2&#x27;</span>]</span><br><span class="line">data.iloc[<span class="number">1</span>:<span class="number">3</span>,<span class="number">0</span>:<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<p>的结果都是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Columns1</span><br><span class="line">Index2	0.175748</span><br><span class="line">Index3	1.748486</span><br></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本次学习的是python中非常强大的<strong>pandas</strong>和<strong>numpy</strong>两个库。由数据加载学习了<strong>dataframe</strong>这种数据结构以及其他相关的很多方法函数。还学习了对数据的各种操作：删除，隐藏，固定选取，筛选等。</p>
+<hr>
 <p><strong>声明</strong> ：以上学习内容根据DataWhale的<a target="_blank" rel="noopener" href="https://github.com/datawhalechina/hands-on-data-analysis">动手学数据分析课程</a>  </p>
 <hr>
 <ul>
@@ -212,6 +250,8 @@
 </ul>
 
       
+      
+     
 
       
     </div>
