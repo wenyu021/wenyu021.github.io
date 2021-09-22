@@ -21,7 +21,7 @@
     <link rel="alternative" href="/atom.xml" title="4Xi" type="application/atom+xml">
   
   
-    <link rel="icon" href="/img/xiong.jpg">
+    <link rel="icon" href="/img/f.png">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -150,6 +150,82 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-动手学数据分析-9月-Task-02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/09/15/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-9%E6%9C%88-Task-02/">动手学数据分析-9月-Task-02</a>
+    </h1>
+  
+
+        
+        <a href="/2021/09/15/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-9%E6%9C%88-Task-02/" class="archive-article-date">
+  	<time datetime="2021-09-15T05:14:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-15</time>
+</a>
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第二章：-数据清洗及特征处理"><a href="#第二章：-数据清洗及特征处理" class="headerlink" title="第二章： 数据清洗及特征处理"></a>第二章： 数据清洗及特征处理</h2><h3 id="第一节"><a href="#第一节" class="headerlink" title="第一节"></a><strong>第一节</strong></h3><h4 id="观察处理缺失值"><a href="#观察处理缺失值" class="headerlink" title="观察处理缺失值"></a><strong>观察处理缺失值</strong></h4><p>数据集中含有缺失值是很正常的，常见的几个对缺失值的处理方法有：</p>
+<ol>
+<li>忽略 </li>
+<li>删除</li>
+<li>填充  </li>
+</ol>
+<p>在第一章中通过<code>.info()</code>方法观察到Age， Cabin，Embarked三列数据有缺失值，利用<code>isnull().sum()</code>统计一下三个特征中缺失值的数量得到  </p>
+<ul>
+<li><strong><code>Age</code>中有<code>177</code>个缺失值，<code>Cabin</code>中有<code>687</code>个缺失值，<code>Embarked</code>中有<code>2</code>个缺失值</strong>  </li>
+</ul>
+<p>缺失值对数据的影响是比较大的所以不可以忽略，对于Age中的177个缺失值可以采用填充的方法。对于Cabin，一般当缺失值的数量大于50%的时候不会采取填充的方法，所以只能删除这个特征。对于Embarked来说，只有2个缺失值，采取填充的方法会更好一些。<br>填充的数值一般有几个方法来确定</p>
+
+      
+      
+     
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/09/15/%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-9%E6%9C%88-Task-02/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-动手学数据分析-9月-Task-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -171,8 +247,7 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="第一章：-数据载入及初步观察"><a href="#第一章：-数据载入及初步观察" class="headerlink" title="第一章： 数据载入及初步观察"></a>第一章： 数据载入及初步观察</h2><h3 id="第一节"><a href="#第一节" class="headerlink" title="第一节"></a><strong>第一节</strong></h3><hr>
-<h4 id="载入数据"><a href="#载入数据" class="headerlink" title="载入数据"></a><strong>载入数据</strong></h4><p>首先将数据集载入<br>数据集来源 <a target="_blank" rel="noopener" href="https://www.kaggle.com/c/titanic/overview">https://www.kaggle.com/c/titanic/overview</a></p>
+        <h2 id="第一章：-数据载入及初步观察"><a href="#第一章：-数据载入及初步观察" class="headerlink" title="第一章： 数据载入及初步观察"></a>第一章： 数据载入及初步观察</h2><h3 id="第一节"><a href="#第一节" class="headerlink" title="第一节"></a><strong>第一节</strong></h3><h4 id="载入数据"><a href="#载入数据" class="headerlink" title="载入数据"></a><strong>载入数据</strong></h4><p>首先将数据集载入<br>数据集来源 <a target="_blank" rel="noopener" href="https://www.kaggle.com/c/titanic/overview">https://www.kaggle.com/c/titanic/overview</a></p>
 <p>此时要用到python中的pandas来帮助读取数据。而常用的的两种引入数据的方式为：<br><code>read_csv</code> 和 <code>read_table</code><br>这两种方式有什么区别。执行以下代码来看一下</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_data</span>():</span></span><br><span class="line">    <span class="keyword">return</span> pd.read_csv(<span class="string">&quot;train.csv&quot;</span>), pd.read_table(<span class="string">&quot;train.csv&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    csv, table = load_data()</span><br><span class="line">    <span class="built_in">print</span>(csv.head())</span><br><span class="line">    <span class="built_in">print</span>(table.head())</span><br><span class="line">    <span class="built_in">print</span>(table.head().shape)</span><br></pre></td></tr></table></figure>
 <p>分别用两种方式读取数据集，然后打印前五行
